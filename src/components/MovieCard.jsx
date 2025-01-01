@@ -1,6 +1,5 @@
 import React from 'react'
-const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
-
+import { IMAGE_BASE_URL } from '../services/GlobalApi'
 function MovieCard({movie}) {
   return (
     <>

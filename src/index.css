@@ -26,3 +26,6 @@
     background-color: #f9f9f9;
   }
 }
+.cloudstream-border-gradient{
+  border-color: linear-gradient(90deg, rgba(93,136,248,1) 0%, rgba(32,73,215,1) 44%, rgba(35,9,220,1) 100%); 
+}

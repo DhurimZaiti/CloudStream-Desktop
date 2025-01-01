@@ -37,8 +37,7 @@ function MovieList({ genreId, index_ }) {
             {/* Movie List */}
             <div
                 ref={elementRef}
-                className="flex overflow-x-auto gap-8 scrollbar-hide pt-5 px-3 pb-5 scroll-smooth"
-            >
+                className="flex overflow-x-auto gap-8 scrollbar-hide pt-5 px-3 pb-5 scroll-smooth">
                 {movieList.map((item, index) => (
                    <>
                     {index_%3==0?<HorizontalMovieCard key={index} movie={item} /> : <MovieCard key={index} movie={item} />}

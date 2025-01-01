@@ -1,13 +1,9 @@
 import React from 'react'
-import Header from '../components/Header'
 
-function search() {
+function Search() {
   return (
-    <div>
-        <Header />
-        <div>Search</div>
-    </div>
+    <div>Search</div>
   )
 }
 
-export default search
+export default Search

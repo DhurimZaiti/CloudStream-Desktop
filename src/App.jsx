@@ -1,22 +1,15 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
-import Slider from './components/Slider'
-import ProductionHouse from './components/ProductionHouse'
-import GenreMovieList from './components/GenreMovieList'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/Header';
+import AppRouter from './routes/router';
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-    <Header />
-    <Slider />
-    <ProductionHouse />
-    <GenreMovieList />
-    </>
-  )
-}
+    <Router>
+      <Header />
+      <AppRouter />
+    </Router>
+  );
+};
 
-export default App
+export default App;

@@ -17,7 +17,7 @@ const Header = () => {
     { name: 'DOWNLOADED', icon: HiOutlineArrowDownTray, path: '/downloads' },
     { name: 'PROVIDER', icon: HiOutlineBars3BottomLeft, path: '/provider' },
     { name: 'ACCOUNT', icon: HiMiniUserCircle, path: '/account' },
-    { name: 'SETTINGS', icon: HiCog6Tooth, path: '/settings' }
+    { name: 'SETTINGS', icon: HiCog6Tooth, path: '/settings' },
   ];
 
   return (

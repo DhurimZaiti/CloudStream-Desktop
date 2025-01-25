@@ -1,47 +1,37 @@
+// globalApi.jsx
 import axios from "axios";
 
-const movieDBUrl = "https://api.themoviedb.org/3";
-const api_key = "b34186573421baaa297b271caf096018";
-
-export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
-
 // Get trending content (movies, TV shows, etc.)
-const getTrendingVideos = axios.get(
-  `${movieDBUrl}/trending/all/day?api_key=${api_key}`
-);
+const getTrendingVideos = (movieDBUrl, api_key) =>
+  axios.get(`${movieDBUrl}/trending/all/day?api_key=${api_key}`);
 
 // Get movies by genre
-const getMovieByGenreBaseUrl =
-  "https://api.themoviedb.org/3/discover/movie?api_key=" + api_key;
-
-const getMovieByGenreId = (id) =>
-  axios.get(getMovieByGenreBaseUrl + "&with_genres=" + id);
+const getMovieByGenreId = (movieDBUrl, api_key, genreId) => {
+  return axios.get(`${movieDBUrl}/discover/movie?api_key=${api_key}&with_genres=${genreId}`);
+};
 
 // Search for both movies and TV shows (multi-search)
-const searchMulti = (query) =>
+const searchMulti = (movieDBUrl, api_key, query) =>
   axios
     .get(`${movieDBUrl}/search/multi?api_key=${api_key}&query=${query}`)
     .then((response) => {
-      // Filter results to include only those with posters
-      const filteredResults = response.data.results.filter((item) => {
-        return item.poster_path; // Keep only results with a poster
-      });
+      const filteredResults = response.data.results.filter((item) => item.poster_path);
       return { ...response, data: { results: filteredResults } };
     });
 
+
 // Get similar movies
-const getSimilarMovies = (movieId) =>
+const getSimilarMovies = (movieId, movieDBUrl, api_key) =>
   axios.get(`${movieDBUrl}/movie/${movieId}/similar?api_key=${api_key}`);
 
 // Get similar TV shows
-const getSimilarTvShows = (tvId) =>
+const getSimilarTvShows = (tvId, movieDBUrl, api_key) =>
   axios.get(`${movieDBUrl}/tv/${tvId}/similar?api_key=${api_key}`);
 
 export default {
   getTrendingVideos,
   getMovieByGenreId,
-  searchMulti, // Updated function for multi-search (movies & TV)
+  searchMulti,
   getSimilarMovies,
-  getSimilarTvShows, // New function for similar TV shows
-  IMAGE_BASE_URL,
+  getSimilarTvShows,
 };

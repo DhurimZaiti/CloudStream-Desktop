@@ -8,7 +8,7 @@ import Watchlist from './../pages/Watchlist';
 import Downloads from './../pages/Downloads';
 import Provider from './../pages/Provider';
 import Account from './../pages/Account';
-import Profile from './../pages/Profile';
+import Profile from '../pages/Profile'
 import Settings from './../pages/Settings';
 // Import other pages as needed...
 

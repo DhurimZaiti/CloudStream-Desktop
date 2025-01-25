@@ -5,7 +5,7 @@ import MovieList from './MovieList';
 function GenreMovieList() {
     return (
         <div>
-            {GenreList.genre.map((item, index) => index <= 4 && (
+            {GenreList.genre.map((item, index) => index <= 17 && (
                 <div key={item.id} className="p-8 px-16">
                     <h2 className="text-[20px] px-3 text-white font-bold">{item.name}</h2>
                     <MovieList genreId={item.id} index_={index}/>

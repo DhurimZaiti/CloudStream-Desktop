@@ -1,6 +1,10 @@
-import React from 'react'
-import { IMAGE_BASE_URL } from '../services/GlobalApi'
-function MovieCard({movie}) {
+import React from "react";
+import { useConfig } from "../context/ConfigContext"; // Import useConfig
+
+function MovieCard({ movie }) {
+  // Access IMAGE_BASE_URL from the context
+  const { IMAGE_BASE_URL } = useConfig();
+
   return (
     <>
         <img src={IMAGE_BASE_URL+movie.poster_path} 
@@ -9,4 +13,4 @@ function MovieCard({movie}) {
   )
 }
 
-export default MovieCard
+export default MovieCard;

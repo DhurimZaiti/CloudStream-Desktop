@@ -33,41 +33,40 @@ function Slider() {
 
   return (
     <div className="pb-5 relative">
-      {/* Chevron buttons */}
-      <HiChevronLeft
-        className="hidden md:block text-white text-[30px] absolute mx-8 mt-[300px] cursor-pointer"
-        onClick={scrollLeft}
-      />
-      <HiChevronRight
-        className="hidden md:block text-white text-[30px] absolute mx-8 mt-[300px] cursor-pointer right-0"
-        onClick={scrollRight}
-      />
-
       {/* Movie list slider */}
       <div
-        className="flex overflow-x-auto w-full px-16 py-4 scrollbar-hide scroll-smooth"
+        className="relative flex overflow-x-auto w-full px-16 py-4 scrollbar-hide scroll-smooth"
         ref={elementRef}
       >
         {movieList.map((item) => (
-      <div
-        key={item.id}
-        className="relative min-w-full md:h-[600px] mr-5 rounded-lg overflow-hidden"
-      >
-        {/* Movie Image */}
-        <img
-          src={`${IMAGE_BASE_URL}${item.backdrop_path}`} // Use IMAGE_BASE_URL from context
-          alt={item.title || item.name}
-          className="w-full h-full object-cover hover:border-[4px] border-gray-400 transition-all duration-100 ease-out"
-        />
+          <div
+            key={item.id}
+            className="relative min-w-full md:h-[600px] mr-5 rounded-xl overflow-hidden"
+          >
+            {/* Movie Image */}
+            <img
+              src={`${IMAGE_BASE_URL}${item.backdrop_path}`} // Use IMAGE_BASE_URL from context
+              alt={item.title || item.name}
+              className="w-full h-full object-cover hover:border-[4px] hover:rounded-xl border-gray-400 transition-all duration-100 ease-out"
+            />
 
-        {/* Movie Title */}
-        <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent text-white p-4">
-          <h2 className="text-lg font-bold">{item.title || item.name}</h2>
-        </div>
+            {/* Movie Title */}
+            <div className="absolute bottom-0 left-0 w-full text-white p-4">
+              <h2 className="text-lg font-bold">{item.title || item.name}</h2>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
 
-      </div>
+      {/* Chevron buttons */}
+      <HiChevronLeft
+        className="hidden md:block text-white text-[30px] absolute top-1/2 -translate-y-1/2 left-5 z-10 cursor-pointer"
+        onClick={scrollLeft}
+      />
+      <HiChevronRight
+        className="hidden md:block text-white text-[30px] absolute top-1/2 -translate-y-1/2 right-5 z-10 cursor-pointer"
+        onClick={scrollRight}
+      />
     </div>
   );
 }
